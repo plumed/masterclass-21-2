@@ -596,13 +596,17 @@ towards the centre of mass.
 
 A metadynamics bias will be used to force the system to move between the four configurations shown in \ref masterclass-21-1-4-lj7-minima. This bias will act on the second and third central moments of the distribution of coordination numbers.
 The nth central moment of a set of numbers, $\{X_i\}$ can be calculated using:
+
 $$
 \mu^n = \frac{1}{N} \sum_{i=1}^N ( X_i - \langle X \rangle )^n \qquad \textrm{where} \qquad \langle X \rangle = \frac{1}{N} \sum_{i=1}^N X_i
 $$
+
 Furthermore, we can compute the coordination number of our Lennard Jones atoms using:
+
 $$
 c_i = \sum_{i \ne j } \frac{1 - \left(\frac{r_{ij}}{1.5}\right)^8}{1 - \left(\frac{r_{ij}}{1.5}\right)^{16} }
 $$
+
 where $r_{ij}$ is the distance between atom $i$ and atom $j$.   With all this information in mind the following cell contains a skeleton input file for PLUMED that gets it to perform metadynamics using the second and third central
 moments of the distribution of coordination numbers as a CV.
 
@@ -653,8 +657,8 @@ METAD ARG=__FILL__ HEIGHT=__FILL__ PACE=__FILL__ SIGMA=__FILL__ GRID_MIN=-1.5,-1
 ````
 \endplumedfile
  
-<b> Copy this input to file called plumed.dat and modify it so that it instructs PLUMED to add Gaussian kernels with a bandwidth of 0.1 in both the second and third moment of the distribution of coordination numbers and a height of 0.05 $\epsilon$ every 
-500 MD steps.  You can then use this input together with the input.xyz, and in files, you obtained from the GitHub repository to generate a metadynamics trajectory at $k_B T = 0.1 \epsilon$ by running the command: </b>
+*Copy this input to file called plumed.dat and modify it so that it instructs PLUMED to add Gaussian kernels with a bandwidth of 0.1 in both the second and third moment of the distribution of coordination numbers and a height of 0.05* $\epsilon$ *every 
+500 MD steps.  You can then use this input together with the input.xyz, and in files, you obtained from the GitHub repository to generate a metadynamics trajectory at* $k_B T = 0.1 \epsilon$ *by running the command:*
 
 ````
 plumed simplemd < in
