@@ -575,13 +575,13 @@ We want to investigate transitions between the four structures of Lennard Jones 
 \image html Lyon-lj7-minima.png "The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7."
 
 However, when we run the metadynamics, we will often find that the cluster evaporates and the seven atoms separate.  To prevent this, we will thus add restraints to prevent the cluster from evaporating.  The particular restraint we are going to use will 
-prevent all the atoms from moving more than \f$2\sigma\f$ from the centre of mass of the cluster.  As the masses of all the atoms in the cluster are the same, we can compute the position of the centre of mass using:
+prevent all the atoms from moving more than $2\sigma$ from the centre of mass of the cluster.  As the masses of all the atoms in the cluster are the same, we can compute the position of the centre of mass using:
 
 $$
-\mathbf{x}_\textrm{com} = \frac{1}{N} \sum_{i=1}^N \mathbf{x}_i_
+\mathbf{x}_\textrm{com} = \frac{1}{N} \sum_{i=1}^N \mathbf{x}_i
 $$
 
-where $\mathbf{x}_i_$ is the position of the atom with the index $i$.   The distance between the atom with index $i$ and the position of this centre of mass, $d_i$, can be computed using Pythagoras' theorem.  These distances
+where $\mathbf{x}_i$ is the position of the atom with the index $i$.   The distance between the atom with index $i$ and the position of this centre of mass, $d_i$, can be computed using Pythagoras' theorem.  These distances
 are then restrained by using the following potential:
 $$
 V(d_i) = \begin{cases}
@@ -709,7 +709,7 @@ Finally, if you are struggling to plot the 2D free energy surface, you can gener
 
 <em> Hint: You are now calculating weighted averages so you will need to use the code you wrote for \ref masterclass-21-2-ex-8 to merge the histograms </em>
 
-\section masterclass-21-2-fr Further reading
+## Further reading
 
 If you want to know more about good practise using PLUMED you can read https://arxiv.org/abs/1812.08213.  We would also recommend learning about kernel density estimation, which will often give you smoother
 histograms.  You can start learning about kernel density estimation by reading https://en.wikipedia.org/wiki/Kernel_density_estimation.  My full sets of notes are available here:
