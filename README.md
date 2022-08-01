@@ -109,7 +109,7 @@ PRINT ARG=av FILE=colvar
 The `colvar` file that is output by PLUMED contains the average computed value from progressively larger and larger numbers of CV values.  You should thus 
 be able to use the data in `colvar` to produce a graph that shows the average as a function of the number of variables it is computed from as shown below.
 
-[](figures/masterclass-21-2-average.png) 
+![Average CV as a function of the number of variables it is computed from](figures/masterclass-21-2-average.png) 
 
 The fluctuations in the average get smaller as this quantity is computed from larger numbers of random variables.  We say that the average thus converges to the ensemble average, which is zero for the graph above. 
 
@@ -148,8 +148,7 @@ The `--noatoms` flag here is needed since `plumed driver` is commonly used to an
 
 You should see that the free energy curve for this data set looks like this:
 
-\anchor masterclass-21-2-fig2
-\image html masterclass-21-2-fes1.png "The free energy as a function of the CV for the data in uncorrelated_data."
+![The free energy as a function of the CV for the data in uncorrelated_data](masterclass-21-2-fes1.png)
 
 As you can see, there is a single minimum in this free energy surface.
 
@@ -215,8 +214,7 @@ PRINT ARG=__FILL__ FILE=colvar
 Once you have run this calculation, you should be able to draw a graph showing how the estimate of $\sigma$ changes as a function of the number of CVs used in its calculation.  As you can 
 see from the graph below, $\sigma$ quantity behaves similarly to the mean that we studied in exercise 1 
 
-\anchor masterclass-21-2-fig3
-\image html masterclass-21-2-var.png "Estimate of the standard deviation for the CV as a function of the number of samples it is computed from"
+![Estimate of the standard deviation for the CV as a function of the number of samples it is computed from](masterclass-21-2-var.png)
 
 *Truncation the Taylor series of the free energy at second order as we have done in this section is equivalent to assuming that a [Harmonic Oscillator](https://www.notion.so/Harmonic-Oscillator-92855b39d13945dabb73cb831dc1234e) 
 can be used to describe the fluctuations along our CV. 
@@ -440,8 +438,7 @@ For each block size
 
 You should be able to use your data to draw a graph showing the value of the average and the associated error barm $\epsilon$, as a function of the size of the blocks similar to the one shown below:
 
-\anchor masterclass-21-2-fig7
-\image html masterclass-21-2-corr-baverage.png "Average of blocks as a function of the blocks' size for the correlated data.  The bar shows the size of the error on the estimate of the average."
+![Average of blocks as a function of the blocks' size for the correlated data.  The bar shows the size of the error on the estimate of the average](masterclass-21-2-corr-baverage.png)
 
 This graph shows that, when the data is correlated, the error bar is underestimated if each block average is computed from a small number of data points.
 When sufficient data points are used to calculate each block average, however, the error bar settles on a constant value that is independent of the block size.  When this has happened you 
@@ -535,13 +532,11 @@ DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
 
 I obtained the following graphs showing how the mean and variance change with sample size.  
 
-\anchor masterclass-21-2-fig8a
-\image html masterclass-21-2-average8.png "Average value of the random variable and the fluctuations as a function of sample size."
+![Average value of the random variable and the fluctuations as a function of sample size](masterclass-21-2-average8.png)
 
 The free energy with errors from this data looks like this:
 
-\anchor masterclass-21-2-fig8b
-\image html masterclass-21-2-fes8.png "Free energy (with errors) as a function of the CV computed by reweighting"
+![Free energy (with errors) as a function of the CV computed by reweighting](masterclass-21-2-fes8.png) 
 
 <b>It is up to you to work out how to adapt the script given in \ref masterclass-21-2-ex-5, so it works here.  The script above works for unweighted means. 
 Here, however, you have to calculate weighted means using the formulas above.</b>
@@ -570,8 +565,7 @@ are output every 1000 MD steps to a file called trajectory.xyz.  Notice also tha
 
 We want to investigate transitions between the four structures of Lennard Jones 7 that are shown below using metadynamics.
 
-\anchor masterclass-21-1-4-lj7-minima
-\image html Lyon-lj7-minima.png "The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7."
+![The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7](Lyon-lj7-minima.png)
 
 However, when we run the metadynamics, we will often find that the cluster evaporates and the seven atoms separate.  To prevent this, we will thus add restraints to prevent the cluster from evaporating.  The particular restraint we are going to use will 
 prevent all the atoms from moving more than $2\sigma$ from the centre of mass of the cluster.  As the masses of all the atoms in the cluster are the same, we can compute the position of the centre of mass using:
@@ -701,14 +695,13 @@ You must make sure that the HILLS file that was output by your metadynamics simu
 For the rest of the exercise, you are on your own.  You must use what you have learned in the other parts of the tutorial to generate plots similar to those shown below.  The leftmost plot here is the 
 free energy surface computed by taking the (weighted) average of the blocks, the right panel shows the size of the error bar on the free energy at each point of the free energy surface.  
 
-\anchor masterclass-21-2-figp
-\image html masterclass-21-2-fes_errors.png "The estimate of the free energy for the Lennard Jones system (left panel) and the errors on these estimate of the free energy."
+
+![The estimate of the free energy for the Lennard Jones system (left panel) and the errors on these estimate of the free energy](masterclass-21-2-fes_errors.png)
 
 Notice that the data is correlated here so you should investigate how the error size depends on the lengths of the blocks as was discussed in \ref masterclass-21-2-ex-7.  When I did this analysis 
 I found that the error does not have a strong dependence on the size of the blocks.
 
-\anchor masterclass-21-2-figp2
-\image html masterclass-21-2-fes_error_blocks.png "The dependence of the average error in the free energy on the size of the blocks used for the block averaging."
+![The dependence of the average error in the free energy on the size of the blocks used for the block averaging](masterclass-21-2-fes_error_blocks.png) 
 
 Finally, if you are struggling to plot the 2D free energy surface, you can generate free energy as a function of one CV only using the ideas from earlier exercises.
 
