@@ -230,7 +230,7 @@ closed-form expression between the variance* ( $\sigma^2$ ) *and the second deri
 
 The following PLUMED input splits the CV values into blocks and calculates [an average](https://www.notion.so/Sample-mean-583d58d7001343c68a7956a1b9f19f4b) from each block of data separately.  We can thus use it to get information on 
 [the distribution](https://www.notion.so/The-cumulative-probability-distribution-function-dc346bc8b4f1440b8d075f8c8d2b0f53) that is being 
-sampled when we calculate an average from sets of 500 random variables using the ideas discussed in \ref masterclass-21-2-ex-1.  
+sampled when we calculate an average from sets of 500 random variables using the ideas discussed in exercise 1.  
 
 \plumedfile
 ````
@@ -337,7 +337,7 @@ $$
 F_i = -k_B T \ln \left( \frac{1}{N} \sum_{j=1}^N H_i^{(j)} \right)
 $$
 
-The sum here runs over the $N$ histograms and $H_i^{(j)}$ is the value of $i$th bin in the $j$th estimate of the histogram.
+The sum here runs over the $N$ histograms and $H_i^{(j)}$ is the value of ith bin in the jth estimate of the histogram.
 The above expression is thus calculating the logarithm of the histogram's average value in bin $i$.
 
 The error on the free energy, which is illustrated using the shaded region in the figure above, is calculated using:
@@ -402,7 +402,7 @@ $$
 To use this expression you can insert the value of $\textrm{var}(X)$ you computed in exercise 3 with $N=500$.  
 
 <em>You can also use bootstrapping to estimate the errors in the free energy surface.  As an additional exercise, you can try to do this form of analysis on the data in `uncorrelated_data` You should get 
-a result that is similar to the result you got in \ref masterclass-21-2-ex-5</em>
+a result that is similar to the result you got in exercise 5</em>
 
 ### Exercise 7: Dealing with correlated data
 
