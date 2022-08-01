@@ -94,7 +94,7 @@ To calculate averages using PLUMED, you can use the input file below.  This inpu
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex1.dat
+#SOLUTIONFILE=.answers/plumed_ex1.dat
 data: READ FILE=__FILL__ VALUES=__FILL__
 av: AVERAGE ARG=__FILL__ STRIDE=1
 PRINT ARG=av FILE=colvar
@@ -130,7 +130,7 @@ for the data in `uncorrelated_data` using PLUMED in this way we can use the inpu
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex2.dat
+#SOLUTIONFILE=.answers/plumed_ex2.dat
 # We use natural units here so that kBT is set to 1
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__ 
@@ -194,7 +194,7 @@ and the expression above we can use the following input file:
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex3.dat
+#SOLUTIONFILE=.answers/plumed_ex3.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 # This line should calculate the square of the quantity read in from the file above
@@ -235,7 +235,7 @@ sampled when we calculate an average from sets of 500 random variables using the
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex4.dat
+#SOLUTIONFILE=.answers/plumed_ex4.dat
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 av: AVERAGE ARG=__FILL__ STRIDE=1 CLEAR=500
 PRINT ARG=__FILL__ STRIDE=__FILL__ FILE=colvar
@@ -278,7 +278,7 @@ from the data in `uncorrelated_data` with 100 bins starting at -4 and finishing 
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex5.dat
+#SOLUTIONFILE=.answers/plumed_ex5.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 hhh: HISTOGRAM ARG=__FILL__ STRIDE=1 __FILL__=-4.5 __FILL__=4.5 __FILL__=100 CLEAR=__FILL__ __FILL__=DISCRETE
@@ -509,7 +509,7 @@ are also going to extract error bars by reweighting.  To calculate these quantit
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex6.dat
+#SOLUTIONFILE=.answers/plumed_ex6.dat
 UNITS NATURAL # This ensures that Boltzmann's constant is one 
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 # This restraint and the REWEIGHT_BIAS command after computes the weights in the formulas above.
@@ -610,7 +610,7 @@ moments of the distribution of coordination numbers as a CV.
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex7.dat
+#SOLUTIONFILE=.answers/plumed_ex7.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
@@ -667,7 +667,7 @@ Once you have run the metadynamics calculations, you can post-process the output
 
 \plumedfile
 ````
-#SOLUTIONFILE .answers/plumed_ex8.dat
+#SOLUTIONFILE=.answers/plumed_ex8.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
