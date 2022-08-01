@@ -58,8 +58,8 @@ $$
 
 where $k_B$ is Boltzmann's constant, $T$ is the temperature $H(x,p)$ is the Hamiltonian and $\delta$ is a Dirac delta function.  Notice also that the integrals 
 in the numerator and denominator are integrals over all of [phase space](https://www.notion.so/Microstates-phase-space-and-the-principle-of-equal-a-priori-probabilities-9dbd484a47654bff858313634f01d875).  If $N$ is 
-the number of atoms in our system we must, therefore, integrate over each of the $3N$ momentum ($p$)
-and $3N$ position ($x$) coordinates when calculating these integrals.  
+the number of atoms in our system we must, therefore, integrate over each of the $3N$ momentum ( $p$ )
+and $3N$ position ( $x$ ) coordinates when calculating these integrals.  
 
 It is only possible to calculate the integrals in the quotient above exactly for elementary physical systems.  For more complex systems we thus assume that we 
 can extract information on $P(s')$ by sampling from this distribution multiple times (using molecular dynamics or Monte Carlo) and using the tools of [statistics](https://www.notion.so/940bd09c5be343888244beb21ed4a166?v=6bb0bd98d8fc47a081164069121ee396).
