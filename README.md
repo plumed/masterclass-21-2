@@ -222,9 +222,9 @@ see from the graph below, $\sigma$ quantity behaves similarly to the mean that w
 *Truncation the Taylor series of the free energy at second order as we have done in this section is equivalent to assuming that a [Harmonic Oscillator](https://www.notion.so/Harmonic-Oscillator-92855b39d13945dabb73cb831dc1234e) 
 can be used to describe the fluctuations along our CV. 
 The [partition function](https://www.notion.so/Generalised-partition-function-10ed8ca2b3c943aa82dff2116ae955e5), ensemble average and distribution for such systems can be calculated exactly, and there is no need for simulation. 
-Even when the system is not harmonic, calculating the quantity we have called $\sigma^2$ in this section is still useful as this quantity is an estimator for the [variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) 
+Even when the system is not harmonic, calculating the quantity we have called* $\sigma^2$ *in this section is still useful as this quantity is an estimator for the [variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) 
 of the distribution.  For anharmonic systems, there is not a simple 
-closed-form expression between the variance ( $\sigma^2$ ) and the second derivative of the free energy at $ \mu$ though.* 
+closed-form expression between the variance* ( $\sigma^2$ ) and the second derivative of the free energy at* $\mu$ *though.* 
 
 ### Exercise 4: Calculating block averages
 
