@@ -479,7 +479,7 @@ $$
 P(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left( -\frac{(x-\mu)^2}{2\sigma^2} \right)
 $$
 
-with $\mu=0.6$ and $\sigma=0.5$ with and additional constrant that $0<x<1$.  Given this information the following weighted average:
+with $\mu=0.6$ and $\sigma=0.5$ with and additional constrant that $ x $ is between 0 and 1.  Given this information the following weighted average:
 
 $$
 \overline{X}_w = \frac{\sum_{i=1}^N w_i X_i }{\sum_{i=1}^N w_i} \qquad \textrm{where} \qquad w_i = \frac{1}{P(X_i)}
