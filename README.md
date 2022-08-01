@@ -182,8 +182,8 @@ We can assume that the constant term in the product above normalizes the distrib
 indeed a normal distribution, it is fully characterized if we have the two parameters 
 $\mu$ and $\sigma$.
 
-Statistics tells us that if we have $N$ identical normal random variables, $X_i$ we can estimate [$\mu$](https://www.notion.so/Sample-mean-583d58d7001343c68a7956a1b9f19f4b) 
-and [$\sigma$](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) using:
+Statistics tells us that if we have $N$ identical normal random variables, $X_i$ we can estimate [$ \mu $](https://www.notion.so/Sample-mean-583d58d7001343c68a7956a1b9f19f4b) 
+and [ $\sigma$ ](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) using:
 
 $$
 \mu = \frac{1}{N} \sum X_i \qquad \qquad \sigma = \sqrt{ \frac{N}{N-1} \left[ \frac{1}{N} \sum_{i=1}^N X_i^2 - \left( \frac{1}{N}\sum_{i=1}^N X_i \right)^2 \right] }
@@ -222,9 +222,9 @@ see from the graph below, $\sigma$ quantity behaves similarly to the mean that w
 *Truncation the Taylor series of the free energy at second order as we have done in this section is equivalent to assuming that a [Harmonic Oscillator](https://www.notion.so/Harmonic-Oscillator-92855b39d13945dabb73cb831dc1234e) 
 can be used to describe the fluctuations along our CV. 
 The [partition function](https://www.notion.so/Generalised-partition-function-10ed8ca2b3c943aa82dff2116ae955e5), ensemble average and distribution for such systems can be calculated exactly, and there is no need for simulation. 
-Even when the system is not harmonic, calculating the quantity we have called \f$\sigma^2\f$ in this section is still useful as this quantity is an estimator for the [variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) 
+Even when the system is not harmonic, calculating the quantity we have called $\sigma^2$ in this section is still useful as this quantity is an estimator for the [variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) 
 of the distribution.  For anharmonic systems, there is not a simple 
-closed-form expression between the variance (\f$\sigma^2\f$) and the second derivative of the free energy at \f$\mu\f$ though.* 
+closed-form expression between the variance ($\sigma^2$) and the second derivative of the free energy at $\mu$ though.* 
 
 ### Exercise 4: Calculating block averages
 
