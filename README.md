@@ -530,13 +530,13 @@ DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
 
 I obtained the following graphs showing how the mean and variance change with sample size.  
 
-![Average value of the random variable and the fluctuations as a function of sample size](masterclass-21-2-average8.png)
+![Average value of the random variable and the fluctuations as a function of sample size](figures/masterclass-21-2-average8.png)
 
 The free energy with errors from this data looks like this:
 
-![Free energy (with errors) as a function of the CV computed by reweighting](masterclass-21-2-fes8.png) 
+![Free energy (with errors) as a function of the CV computed by reweighting](figures/masterclass-21-2-fes8.png) 
 
-<b>It is up to you to work out how to adapt the script given in \ref masterclass-21-2-ex-5, so it works here.  The script above works for unweighted means. 
+<b>It is up to you to work out how to adapt the script given in exercise 5, so it works here.  The script above works for unweighted means. 
 Here, however, you have to calculate weighted means using the formulas above.</b>
 
 ### Exercise 9: The free energy from a biased simulation
@@ -544,9 +544,8 @@ Here, however, you have to calculate weighted means using the formulas above.</b
 We can now bring all this together by running a metadynamics simulation and extracting the free energy surface by reweighting.  The other exercises in this tutorial have shown us that when we do this, it is essential to:
 
 - Quote error bars on the estimates of the free energy we obtain as the values we get from our simulation will be random variables.  Quoting error bars is thus essential in terms of making our results reproducible.
-- Calculate weighted averages using the ideas discussed in \ref masterclass-21-2-ex-8 as we need to account for the effect the bias has on the sampling of phase space.
-- Use the block averaging method discussed in \ref masterclass-21-2-ex-4 to obtain multiple estimates for the free energy.  Notice that we need to use block averaging because, as discussed in 
-\ref masterclass-21-2-ex-7, there are correlations between the CV values the system visits during the trajectory.
+- Calculate weighted averages using the ideas discussed in exercise 8 as we need to account for the effect the bias has on the sampling of phase space.
+- Use the block averaging method discussed in exercise 4 to obtain multiple estimates for the free energy.  Notice that we need to use block averaging because, as discussed in exercise 7, there are correlations between the CV values the system visits during the trajectory.
 
 As these three issues have been the focus of this tutorial, we focus on them in the exercise that follows.  The theory behind the metadynamics method that we are using is discussed in detail in 
 other lessons if you are interested.  
@@ -563,7 +562,7 @@ are output every 1000 MD steps to a file called trajectory.xyz.  Notice also tha
 
 We want to investigate transitions between the four structures of Lennard Jones 7 that are shown below using metadynamics.
 
-![The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7](Lyon-lj7-minima.png)
+![The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7](figures/Lyon-lj7-minima.png)
 
 However, when we run the metadynamics, we will often find that the cluster evaporates and the seven atoms separate.  To prevent this, we will thus add restraints to prevent the cluster from evaporating.  The particular restraint we are going to use will 
 prevent all the atoms from moving more than $2\sigma$ from the centre of mass of the cluster.  As the masses of all the atoms in the cluster are the same, we can compute the position of the centre of mass using:
