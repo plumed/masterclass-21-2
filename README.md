@@ -109,8 +109,7 @@ PRINT ARG=av FILE=colvar
 The `colvar` file that is output by PLUMED contains the average computed value from progressively larger and larger numbers of CV values.  You should thus 
 be able to use the data in `colvar` to produce a graph that shows the average as a function of the number of variables it is computed from as shown below.
 
-\anchor masterclass-21-2-fig1
-\image html masterclass-21-2-average.png "Average CV as a function of the number of variables it is computed from"
+[](figures/masterclass-21-2-average.png) 
 
 The fluctuations in the average get smaller as this quantity is computed from larger numbers of random variables.  We say that the average thus converges to the ensemble average, which is zero for the graph above. 
 
