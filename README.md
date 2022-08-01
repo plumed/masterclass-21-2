@@ -163,7 +163,7 @@ $$
 F(s) = F(\mu) + F'(\mu)(s-\mu) + \frac{F''(\mu)(s-\mu)^2}{2!} + \dots + \frac{F^{(n)}(\mu)(s-\mu)^n}{n!} + \dots
 $$
 
-In this expression $F'(\mu)$, $F''(\mu)$ and $F^{(n)}(\mu)$ are the first, second and $n$th derivatives of the free energy at $\mu$.  We know there is a minimum at 
+In this expression $F'(\mu)$, $F''(\mu)$ and $F^{(n)}(\mu)$ are the first, second and nth derivatives of the free energy at $\mu$.  We know there is a minimum at 
 $\mu$ so $F'(\mu)=0$.  If we truncate the expansion at second order we can, therefore, write:
 
 $$
@@ -224,7 +224,7 @@ can be used to describe the fluctuations along our CV.
 The [partition function](https://www.notion.so/Generalised-partition-function-10ed8ca2b3c943aa82dff2116ae955e5), ensemble average and distribution for such systems can be calculated exactly, and there is no need for simulation. 
 Even when the system is not harmonic, calculating the quantity we have called* $\sigma^2$ *in this section is still useful as this quantity is an estimator for the [variance](https://www.notion.so/Variance-3688f3132bd64d3fbc2f022d7ee17e88) 
 of the distribution.  For anharmonic systems, there is not a simple 
-closed-form expression between the variance* ( $\sigma^2$ ) and the second derivative of the free energy at* $\mu$ *though.* 
+closed-form expression between the variance* ( $\sigma^2$ ) *and the second derivative of the free energy at* $\mu$ *though.* 
 
 ### Exercise 4: Calculating block averages
 
