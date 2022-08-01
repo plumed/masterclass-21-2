@@ -1,0 +1,7 @@
+UNITS NATURAL
+data: READ FILE=data/uncorrelated_data VALUES=rand
+d2: CUSTOM ARG=data FUNC=x*x PERIODIC=NO
+av: AVERAGE ARG=data STRIDE=1
+av2: AVERAGE ARG=d2 STRIDE=1
+var: CUSTOM ARG=av,av2 FUNC=y-x*x PERIODIC=NO
+PRINT ARG=var FILE=colvar
