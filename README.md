@@ -562,7 +562,7 @@ are output every 1000 MD steps to a file called trajectory.xyz.  Notice also tha
 
 We want to investigate transitions between the four structures of Lennard Jones 7 that are shown below using metadynamics.
 
-![The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7](figures/Lyon-lj7-minima.png)
+![The four energetic minima in the energy landscape for two-dimensional Lennard Jones 7](figures/lyon-lj7-minima.png)
 
 However, when we run the metadynamics, we will often find that the cluster evaporates and the seven atoms separate.  To prevent this, we will thus add restraints to prevent the cluster from evaporating.  The particular restraint we are going to use will 
 prevent all the atoms from moving more than $2\sigma$ from the centre of mass of the cluster.  As the masses of all the atoms in the cluster are the same, we can compute the position of the centre of mass using:
