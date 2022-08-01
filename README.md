@@ -148,7 +148,7 @@ The `--noatoms` flag here is needed since `plumed driver` is commonly used to an
 
 You should see that the free energy curve for this data set looks like this:
 
-![The free energy as a function of the CV for the data in uncorrelated_data](masterclass-21-2-fes1.png)
+![The free energy as a function of the CV for the data in uncorrelated_data](figures/masterclass-21-2-fes1.png)
 
 As you can see, there is a single minimum in this free energy surface.
 
@@ -214,7 +214,7 @@ PRINT ARG=__FILL__ FILE=colvar
 Once you have run this calculation, you should be able to draw a graph showing how the estimate of $\sigma$ changes as a function of the number of CVs used in its calculation.  As you can 
 see from the graph below, $\sigma$ quantity behaves similarly to the mean that we studied in exercise 1 
 
-![Estimate of the standard deviation for the CV as a function of the number of samples it is computed from](masterclass-21-2-var.png)
+![Estimate of the standard deviation for the CV as a function of the number of samples it is computed from](figures/masterclass-21-2-var.png)
 
 *Truncation the Taylor series of the free energy at second order as we have done in this section is equivalent to assuming that a [Harmonic Oscillator](https://www.notion.so/Harmonic-Oscillator-92855b39d13945dabb73cb831dc1234e) 
 can be used to describe the fluctuations along our CV. 
@@ -245,8 +245,7 @@ PRINT ARG=__FILL__ STRIDE=__FILL__ FILE=colvar
 
 Plot a graph showing the original data from `uncorrelated_data` and the averages in the `colvar` file.  You should be able to see something similar to this graph. 
 
-\anchor masterclass-21-2-fig4
-\image html masterclass-21-2-block-average.png "The yellow points are block averages computed from the data points shown in black."
+![The yellow points are block averages computed from the data points shown in black](figures/masterclass-21-2-block-average.png)
 
 Notice how the distribution for both the black (original data) and yellow points (averages) in this graph are centred on the same quantity.  Both of these quantities are thus 
 [accurate estimators](https://www.notion.so/Point-estimation-d4225267e03e4539a2e85d08b9e9efad) for the expectation of the distribution.  However, the block average that is shown in yellow is a more 
@@ -325,8 +324,7 @@ Copy this script to a cell in a python notebook and then run it on your data.
 You may need to adjust the names of the files that are being read to suit your machine's setup.
 The graph shown in the figure below shows the free energy surface generated from the python script.  
 
-\anchor masterclass-21-2-fig5
-\image html masterclass-21-2-fes2.png "The free energy as a function of the CV for the data in uncorrelated_data.  The shaded region shows the errors on this estimate.  These errors were computed using block averaging."
+![The free energy as a function of the CV for the data in uncorrelated_data.  The shaded region shows the errors on this estimate.  These errors were computed using block averaging](figures/masterclass-21-2-fes2.png) 
 
 The value of the free energy in the $i$th bin is calculated using:
 
@@ -438,7 +436,7 @@ For each block size
 
 You should be able to use your data to draw a graph showing the value of the average and the associated error barm $\epsilon$, as a function of the size of the blocks similar to the one shown below:
 
-![Average of blocks as a function of the blocks' size for the correlated data.  The bar shows the size of the error on the estimate of the average](masterclass-21-2-corr-baverage.png)
+![Average of blocks as a function of the blocks' size for the correlated data.  The bar shows the size of the error on the estimate of the average](figures/masterclass-21-2-corr-baverage.png)
 
 This graph shows that, when the data is correlated, the error bar is underestimated if each block average is computed from a small number of data points.
 When sufficient data points are used to calculate each block average, however, the error bar settles on a constant value that is independent of the block size.  When this has happened you 
@@ -696,12 +694,12 @@ For the rest of the exercise, you are on your own.  You must use what you have l
 free energy surface computed by taking the (weighted) average of the blocks, the right panel shows the size of the error bar on the free energy at each point of the free energy surface.  
 
 
-![The estimate of the free energy for the Lennard Jones system (left panel) and the errors on these estimate of the free energy](masterclass-21-2-fes_errors.png)
+![The estimate of the free energy for the Lennard Jones system (left panel) and the errors on these estimate of the free energy](figures/masterclass-21-2-fes_errors.png)
 
 Notice that the data is correlated here so you should investigate how the error size depends on the lengths of the blocks as was discussed in \ref masterclass-21-2-ex-7.  When I did this analysis 
 I found that the error does not have a strong dependence on the size of the blocks.
 
-![The dependence of the average error in the free energy on the size of the blocks used for the block averaging](masterclass-21-2-fes_error_blocks.png) 
+![The dependence of the average error in the free energy on the size of the blocks used for the block averaging](figures/masterclass-21-2-fes_error_blocks.png) 
 
 Finally, if you are struggling to plot the 2D free energy surface, you can generate free energy as a function of one CV only using the ideas from earlier exercises.
 
