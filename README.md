@@ -581,14 +581,16 @@ $$
 \mathbf{x}_\textrm{com} = \frac{1}{N} \sum_{i=1}^N \mathbf{x}_i
 $$
 
-where $\mathbf{x}_i$ is the position of the atom with the index $i$.   The distance between the atom with index $i$ and the position of this centre of mass, $d_i$, can be computed using Pythagoras' theorem.  These distances
+where $\mathbf{x}_i$ is the position of the atom with index i.   The distance between the atom with index i and the position of this centre of mass, $d_i$, can be computed using Pythagoras' theorem.  These distances
 are then restrained by using the following potential:
+
 $$
 V(d_i) = \begin{cases}
-          100*(d_i-2.0)^2 & \textrm{if} \quad d_i > 2 \\
+          100*(d_i-2.0)^2 & \textrm{if} \quad d_i &gt; 2 \\
           0 & \textrm{otherwise}
 \end{cases}
 $$
+
 as you can see, this potential does not affect the dynamics when these distances are less than 2 $\epsilon$.  If an atom is more than 2 $\epsilon$ from the centre of mass, however, this potential will drive it back
 towards the centre of mass. 
 
