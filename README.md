@@ -93,7 +93,7 @@ We can do the same with the data from our MD trajectory.  We replace the $X_i$ i
 To calculate averages using PLUMED, you can use the input file below.  This input calculates averages for the data in the `uncorrelated_data` file you downloaded when you collected the GitHub repository.  
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex1.dat
+#SOLUTIONFILE=answers/plumed_ex1.dat
 data: READ FILE=__FILL__ VALUES=__FILL__
 av: AVERAGE ARG=__FILL__ STRIDE=1
 PRINT ARG=av FILE=colvar
@@ -127,7 +127,7 @@ If we estimate $P(s')$ using likelihood maximisation we can thus get an estimate
 for the data in `uncorrelated_data` using PLUMED in this way we can use the input file:
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex2.dat
+#SOLUTIONFILE=answers/plumed_ex2.dat
 # We use natural units here so that kBT is set to 1
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__ 
@@ -189,7 +189,7 @@ We learned how to estimate $\mu$ using these expressions in exercise 1.  To esti
 and the expression above we can use the following input file:
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex3.dat
+#SOLUTIONFILE=answers/plumed_ex3.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 # This line should calculate the square of the quantity read in from the file above
@@ -228,7 +228,7 @@ The following PLUMED input splits the CV values into blocks and calculates [an a
 sampled when we calculate an average from sets of 500 random variables using the ideas discussed in exercise 1.  
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex4.dat
+#SOLUTIONFILE=answers/plumed_ex4.dat
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 av: AVERAGE ARG=__FILL__ STRIDE=1 CLEAR=500
 PRINT ARG=__FILL__ STRIDE=__FILL__ FILE=colvar
@@ -269,7 +269,7 @@ We can use the block averaging method introduced in \ref masterclass-21-2-ex-4 t
 from the data in `uncorrelated_data` with 100 bins starting at -4 and finishing at +4 using PLUMED we can use the input file:
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex5.dat
+#SOLUTIONFILE=answers/plumed_ex5.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 hhh: HISTOGRAM ARG=__FILL__ STRIDE=1 __FILL__=-4.5 __FILL__=4.5 __FILL__=100 CLEAR=__FILL__ __FILL__=DISCRETE
@@ -498,7 +498,7 @@ unbiased free energy.  We will calculate these quantities by computing weighted 
 are also going to extract error bars by reweighting.  To calculate these quantities using PLUMED we will use an input like this:
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex6.dat
+#SOLUTIONFILE=answers/plumed_ex6.dat
 UNITS NATURAL # This ensures that Boltzmann's constant is one 
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 # This restraint and the REWEIGHT_BIAS command after computes the weights in the formulas above.
@@ -597,7 +597,7 @@ where $r_{ij}$ is the distance between atom $i$ and atom $j$.   With all this in
 moments of the distribution of coordination numbers as a CV.
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex7.dat
+#SOLUTIONFILE=answers/plumed_ex7.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
@@ -652,7 +652,7 @@ plumed simplemd < in
 Once you have run the metadynamics calculations, you can post-process the output trajectory using <b> driver </b> to extract the free energy by [reweighting](https://www.notion.so/Weighted-histograms-546d0b3837ce43a3b9de0dcf7a741353).  Notice that to do block averaging, you will need to extract multiple estimates for the (weighted) histogram.  You should thus use the following input file to extract estimates of the histogram:
 
 ```plumed
-#SOLUTIONFILE=.answers/plumed_ex8.dat
+#SOLUTIONFILE=answers/plumed_ex8.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
