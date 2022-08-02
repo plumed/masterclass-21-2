@@ -92,14 +92,12 @@ We can do the same with the data from our MD trajectory.  We replace the $X_i$ i
 
 To calculate averages using PLUMED, you can use the input file below.  This input calculates averages for the data in the `uncorrelated_data` file you downloaded when you collected the GitHub repository.  
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex1.dat
 data: READ FILE=__FILL__ VALUES=__FILL__
 av: AVERAGE ARG=__FILL__ STRIDE=1
 PRINT ARG=av FILE=colvar
-````
-\endplumedfile
+```
 
 <b>Copy the input to a file called plumed.dat, fill in the blanks and  run the calculation by executing the following command:</b>
 
@@ -128,8 +126,7 @@ $$
 If we estimate $P(s')$ using likelihood maximisation we can thus get an estimate of the free energy surface.  To estimate the free energy surface 
 for the data in `uncorrelated_data` using PLUMED in this way we can use the input file:
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex2.dat
 # We use natural units here so that kBT is set to 1
 UNITS NATURAL
@@ -137,8 +134,7 @@ data: READ FILE=__FILL__ VALUES=__FILL__
 hhh: HISTOGRAM ARG=__FILL__ STRIDE=1 __FILL__=-4.5 __FILL__=4.5 __FILL__=100 __FILL__=DISCRETE
 fes: CONVERT_TO_FES GRID=__FILL__ TEMP=1  # This sets k_B T = 1 
 DUMPGRID GRID=__FILL__ FILE=fes.dat
-````
-\endplumedfile
+```
 
 <b>Copy this input to a file called plumed.dat, fill in the blanks so that you have a grid that runs from -4 to +4 with 100 bins.  Run the calculation by executing the following command:</b>
 
@@ -192,8 +188,7 @@ $$
 We learned how to estimate $\mu$ using these expressions in exercise 1.  To estimate $\sigma^2$ for the data in `uncorrelated_data` using PLUMED 
 and the expression above we can use the following input file:
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex3.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
@@ -207,8 +202,7 @@ av2: AVERAGE ARG=__FILL__ STRIDE=1
 var: CUSTOM ARG=__FILL__ FUNC=y-x*x PERIODIC=NO
 # Print the variance
 PRINT ARG=__FILL__ FILE=colvar
-````
-\endplumedfile
+```
 
 *Copy this input to a file called plumed.dat, fill in the blanks and run the calculation by executing the following command:*
 
@@ -233,14 +227,12 @@ The following PLUMED input splits the CV values into blocks and calculates [an a
 [the distribution](https://www.notion.so/The-cumulative-probability-distribution-function-dc346bc8b4f1440b8d075f8c8d2b0f53) that is being 
 sampled when we calculate an average from sets of 500 random variables using the ideas discussed in exercise 1.  
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex4.dat
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 av: AVERAGE ARG=__FILL__ STRIDE=1 CLEAR=500
 PRINT ARG=__FILL__ STRIDE=__FILL__ FILE=colvar
-````
-\endplumedfile
+```
 
 *Copy this input to a file called plumed.dat, fill in the blanks and run the calculation by executing the following command:*
 
@@ -276,15 +268,13 @@ where $\mathbb{E}(X)$ and $\textrm{var}(X)$ are the expectation and variance of 
 We can use the block averaging method introduced in \ref masterclass-21-2-ex-4 to calculate error bars on the estimates of free energy.  To generate 10 histograms
 from the data in `uncorrelated_data` with 100 bins starting at -4 and finishing at +4 using PLUMED we can use the input file:
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex5.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 hhh: HISTOGRAM ARG=__FILL__ STRIDE=1 __FILL__=-4.5 __FILL__=4.5 __FILL__=100 CLEAR=__FILL__ __FILL__=DISCRETE
 DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
-````
-\endplumedfile
+```
 
 <b>Copy this input to a file called plumed.dat, fill in the blanks and run the calculation by executing the following command:</b>
 
@@ -507,8 +497,7 @@ In what follows we are thus going to try to extract the average and the fluctuat
 unbiased free energy.  We will calculate these quantities by computing weighted averages and [weighted histograms](https://www.notion.so/Weighted-histograms-546d0b3837ce43a3b9de0dcf7a741353) from our simulation data.  For the histogram we 
 are also going to extract error bars by reweighting.  To calculate these quantities using PLUMED we will use an input like this:
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex6.dat
 UNITS NATURAL # This ensures that Boltzmann's constant is one 
 data: READ FILE=__FILL__ VALUES=__FILL__ 
@@ -527,8 +516,7 @@ PRINT ARG=__FILL__ STRIDE=1 FILE=colvar
 # Construct the histogram
 hhh: HISTOGRAM ARG=__FILL__ LOGWEIGHTS=__FILL__ __FILL__=0 __FILL__=1 __FILL__=20 CLEAR=__FILL__ NORMALIZATION=true __FILL__=DISCRETE
 DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
-````
-\endplumedfile
+```
 
 <b>Copy this input to a file called plumed.dat, fill in the blanks and run the calculation by executing the following command:</b>
 
@@ -608,8 +596,7 @@ $$
 where $r_{ij}$ is the distance between atom $i$ and atom $j$.   With all this information in mind the following cell contains a skeleton input file for PLUMED that gets it to perform metadynamics using the second and third central
 moments of the distribution of coordination numbers as a CV.
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex7.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
@@ -653,8 +640,7 @@ c1: COORDINATIONNUMBER SPECIES=__FILL__ MOMENTS=__FILL__ SWITCH={RATIONAL __FILL
 
 # Do metadynamics
 METAD ARG=__FILL__ HEIGHT=__FILL__ PACE=__FILL__ SIGMA=__FILL__ GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=500,500 BIASFACTOR=5
-````
-\endplumedfile
+```
  
 *Copy this input to file called plumed.dat and modify it so that it instructs PLUMED to add Gaussian kernels with a bandwidth of 0.1 in both the second and third moment of the distribution of coordination numbers and a height of 0.05* $\epsilon$ *every 
 500 MD steps.  You can then use this input together with the input.xyz, and in files, you obtained from the GitHub repository to generate a metadynamics trajectory at* $k_B T = 0.1 \epsilon$ *by running the command:*
@@ -665,8 +651,7 @@ plumed simplemd < in
 
 Once you have run the metadynamics calculations, you can post-process the output trajectory using <b> driver </b> to extract the free energy by [reweighting](https://www.notion.so/Weighted-histograms-546d0b3837ce43a3b9de0dcf7a741353).  Notice that to do block averaging, you will need to extract multiple estimates for the (weighted) histogram.  You should thus use the following input file to extract estimates of the histogram:
 
-\plumedfile
-````
+```plumed
 #SOLUTIONFILE=.answers/plumed_ex8.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
@@ -688,8 +673,7 @@ rw: REWEIGHT_BIAS TEMP=0.1
 # Calculate the histogram and output it to a file
 hh: HISTOGRAM ARG=c1.* GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=200,200 BANDWIDTH=0.02,0.02 LOGWEIGHTS=__FILL__ CLEAR=__FILL__ NORMALIZATION=true
 DUMPGRID GRID=hh FILE=my_histogram.dat STRIDE=2500
-````
-\endplumedfile
+```
 
 Once you have filled in the blanks in this input, you can then run the calculation by using the command:
 
