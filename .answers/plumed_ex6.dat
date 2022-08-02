@@ -1,5 +1,5 @@
 UNITS NATURAL # This ensures that Boltzmann's constant is one 
-data: READ FILE=data/weighted_data VALUES=rand IGNORE_FORCES 
+data: READ FILE=../data/weighted_data VALUES=rand IGNORE_FORCES 
 mm: RESTRAINT ARG=data AT=0.6 KAPPA=4 
 rw: REWEIGHT_BIAS TEMP=1 
 PRINT ARG=data,rw FILE=reweight
