@@ -1,0 +1,12 @@
+UNITS NATURAL
+data: READ FILE=../data/uncorrelated_data VALUES=rand
+# This line should calculate the square of the quantity read in from the file above
+d2: CUSTOM ARG=data FUNC=x*x PERIODIC=NO
+# Calculate the average from the read-in data
+av: AVERAGE ARG=data STRIDE=1
+# Calculate the average of the squares of the read in data
+av2: AVERAGE ARG=d2 STRIDE=1
+# Evaluate the variance using the expression above
+var: CUSTOM ARG=av,av2 FUNC=y-x*x PERIODIC=NO
+# Print the variance
+PRINT ARG=var FILE=colvar

@@ -17,7 +17,7 @@ Once you have completed this Masterclass you will be able to:
  
 ## Setting up PLUMED
 
-If you have not yet set up PLUMED, you can find information about installing it in the section \ref masterclass-21-1-install of \ref masterclass-21-1. Please ensure that you have setup PLUMED on your machine before starting the exercises.
+If you have not yet set up PLUMED, you can find information about installing it [here](https://www.plumed.org/doc-v2.8/user-doc/html/masterclass-21-1.html). Please ensure that you have setup PLUMED on your machine before starting the exercises.
 
 ## Resources
 
@@ -93,7 +93,7 @@ We can do the same with the data from our MD trajectory.  We replace the $X_i$ i
 To calculate averages using PLUMED, you can use the input file below.  This input calculates averages for the data in the `uncorrelated_data` file you downloaded when you collected the GitHub repository.  
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex1.dat
+#SOLUTIONFILE=work/plumed_ex1.dat
 data: READ FILE=__FILL__ VALUES=__FILL__
 av: AVERAGE ARG=__FILL__ STRIDE=1
 PRINT ARG=av FILE=colvar
@@ -127,7 +127,7 @@ If we estimate $P(s')$ using likelihood maximisation we can thus get an estimate
 for the data in `uncorrelated_data` using PLUMED in this way we can use the input file:
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex2.dat
+#SOLUTIONFILE=work/plumed_ex2.dat
 # We use natural units here so that kBT is set to 1
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__ 
@@ -189,7 +189,7 @@ We learned how to estimate $\mu$ using these expressions in exercise 1.  To esti
 and the expression above we can use the following input file:
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex3.dat
+#SOLUTIONFILE=work/plumed_ex3.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
 # This line should calculate the square of the quantity read in from the file above
@@ -228,7 +228,7 @@ The following PLUMED input splits the CV values into blocks and calculates [an a
 sampled when we calculate an average from sets of 500 random variables using the ideas discussed in exercise 1.  
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex4.dat
+#SOLUTIONFILE=work/plumed_ex4.dat
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 av: AVERAGE ARG=__FILL__ STRIDE=1 CLEAR=500
 PRINT ARG=__FILL__ STRIDE=__FILL__ FILE=colvar
@@ -265,14 +265,18 @@ where $\mathbb{E}(X)$ and $\textrm{var}(X)$ are the expectation and variance of 
 
 ### Exercise 5: Free energy from block averages
 
-We can use the block averaging method introduced in \ref masterclass-21-2-ex-4 to calculate error bars on the estimates of free energy.  To generate 10 histograms
+We can use the block averaging method introduced in exercise 4 to calculate error bars on the estimates of free energy.  To generate 10 histograms
 from the data in `uncorrelated_data` with 100 bins starting at -4 and finishing at +4 using PLUMED we can use the input file:
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex5.dat
+#SOLUTIONFILE=work/plumed_ex5.dat
 UNITS NATURAL
 data: READ FILE=__FILL__ VALUES=__FILL__
-hhh: HISTOGRAM ARG=__FILL__ STRIDE=1 __FILL__=-4.5 __FILL__=4.5 __FILL__=100 CLEAR=__FILL__ __FILL__=DISCRETE
+hhh: HISTOGRAM ... 
+   ARG=__FILL__ STRIDE=1 
+   __FILL__=-4.5 __FILL__=4.5 __FILL__=100 
+   CLEAR=__FILL__ __FILL__=DISCRETE
+...
 DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
 ```
 
@@ -317,8 +321,7 @@ plt.ylabel('Free energy')
 plt.show()
 ```
 
-Copy this script to a cell in a python notebook and then run it on your data.  
-You may need to adjust the names of the files that are being read to suit your machine's setup.
+Copy this script to a cell in a python notebook and then run it on your data. You may need to adjust the names of the files that are being read to suit your machine's setup.
 The graph shown in the figure below shows the free energy surface generated from the python script.  
 
 ![The free energy as a function of the CV for the data in uncorrelated_data.  The shaded region shows the errors on this estimate.  These errors were computed using block averaging](figures/masterclass-21-2-fes2.png) 
@@ -383,9 +386,7 @@ for i in range(0,200):
 f.close()
 ```
 
-When you run the script above, it generates a file called `bootstraps` containing the averages that have been calculated by bootstrapping.  
-If you now calculate the variance from all your bootstrapped averages you should see that it close to the value you got from the expression below 
-which was introduced in exercise 4: 
+When you run the script above, it generates a file called `bootstraps` containing the averages that have been calculated by bootstrapping. If you now calculate the variance from all your bootstrapped averages you should see that it close to the value you got from the expression below which was introduced in exercise 4: 
 
 $$
 \textrm{var}(\overline{X}) = \frac{\textrm{var}(X)}{N}
@@ -398,7 +399,7 @@ a result that is similar to the result you got in exercise 5</em>
 
 ### Exercise 7: Dealing with correlated data
 
-In this exercise, you will review everything you have done in the previous two sections.  <b>You should</b>:
+In this exercise, you will review everything you have done in the previous two exercises.  <b>You should</b>:
 
 - Calculate block averages for the data in `correlated_data`.  Calculate the error on the average of the block average.  
 - Calculate bootstrap averages for the data in `correlated_data`.  Calculate the error from the bootstrap averages.
@@ -412,7 +413,7 @@ $$
 \textrm{var}(\overline{X}) = \frac{\textrm{var}(X)}{N}
 $$ 
 
-is only valid if the random variables that $\overline{X}$ is computed from are both identical and [<b>independent</b>](https://www.notion.so/Independence-00fd3064fd3e4aa3b677d7fec6ecedcd).   This expression is thus not valid for 
+is only valid if the random variables that $\overline{X}$ is computed from are both [identical](https://www.notion.so/Random-variables-8aad5b4c3453423da3069168228fe890) and [<b>independent</b>](https://www.notion.so/Independence-00fd3064fd3e4aa3b677d7fec6ecedcd).   This expression is thus not valid for 
 correlated data.  To be clear, however, we can still write:
 
 $$
@@ -423,7 +424,7 @@ as this expression holds as long as the random variables from which $\overline{X
 independent and can be correlated.
 
 <b>Any data we get by computing CVs from a molecular dynamics trajectory is almost certain to contain correlations.</b>  It is thus essential to know how to handle correlated
-data.  The block averaging technique that was introduced in \ref masterclass-21-2-ex-4 resolves this problem.  You can show that if the blocks are long enough, the averages you obtain are uncorrelated.
+data.  The block averaging technique that was introduced in exercise 4 resolves this problem.  You can show that if the blocks are long enough, the averages you obtain are uncorrelated.
 
 For the remainder of this exercise, you should use the data in `correlated_data` and what you have learned in the previous exercises to calculate block averages for different block sizes.  
 For each block size 
@@ -498,7 +499,7 @@ unbiased free energy.  We will calculate these quantities by computing weighted 
 are also going to extract error bars by reweighting.  To calculate these quantities using PLUMED we will use an input like this:
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex6.dat
+#SOLUTIONFILE=work/plumed_ex6.dat
 UNITS NATURAL # This ensures that Boltzmann's constant is one 
 data: READ FILE=__FILL__ VALUES=__FILL__ 
 # This restraint and the REWEIGHT_BIAS command after computes the weights in the formulas above.
@@ -514,7 +515,11 @@ var: CUSTOM ARG=uvar,wsum FUNC=x/(y-1) PERIODIC=NO
 # Print out the average and variance of the uniform random variable
 PRINT ARG=__FILL__ STRIDE=1 FILE=colvar
 # Construct the histogram
-hhh: HISTOGRAM ARG=__FILL__ LOGWEIGHTS=__FILL__ __FILL__=0 __FILL__=1 __FILL__=20 CLEAR=__FILL__ NORMALIZATION=true __FILL__=DISCRETE
+hhh: HISTOGRAM ... 
+   ARG=__FILL__ LOGWEIGHTS=__FILL__ 
+   __FILL__=0 __FILL__=1 __FILL__=20 
+   CLEAR=__FILL__ NORMALIZATION=true __FILL__=DISCRETE
+...
 DUMPGRID GRID=__FILL__ FILE=hist.dat STRIDE=1000
 ```
 
@@ -553,6 +558,7 @@ plumed simplemd < in
 ````
 
 where <b>in</b> here is the input file from the GitHub repository for this tutorial.  This input file instructs PLUMED to perform 200000 steps of MD at a temperature of $k_B T = 0.1 \epsilon$ starting from the configuration in input.xyz.  
+
 The timestep in this simulation is 0.005 $\sqrt{\epsilon}{m\sigma^2}$ and the temperature is kept fixed using a Langevin thermostat with a relaxation time of $0.1 \sqrt{\epsilon}{m\sigma^2}$.  Trajectory frames
 are output every 1000 MD steps to a file called trajectory.xyz.  Notice also that to run the calculation above you need to provide a PLUMED input file called plumed.dat.  
 
@@ -572,7 +578,7 @@ are then restrained by using the following potential:
 
 $$
 V(d_i) = \begin{cases}
-          100*(d_i-2.0)^2 & \textrm{if} \quad d_i &gt; 2 \\
+          100*(d_i-2.0)^2 & \textrm{if} \quad d_i < 2 \\
           0 & \textrm{otherwise}
 \end{cases}
 $$
@@ -580,7 +586,7 @@ $$
 as you can see, this potential does not affect the dynamics when these distances are less than 2 $\epsilon$.  If an atom is more than 2 $\epsilon$ from the centre of mass, however, this potential will drive it back
 towards the centre of mass. 
 
-A metadynamics bias will be used to force the system to move between the four configurations shown in \ref masterclass-21-1-4-lj7-minima. This bias will act on the second and third central moments of the distribution of coordination numbers.
+A metadynamics bias will be used to force the system to move between the four configurations shown in the figure of the four minima above. This bias will act on the second and third central moments of the distribution of coordination numbers.
 The nth central moment of a set of numbers, $\{X_i\}$ can be calculated using:
 
 $$
@@ -597,7 +603,7 @@ where $r_{ij}$ is the distance between atom $i$ and atom $j$.   With all this in
 moments of the distribution of coordination numbers as a CV.
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex7.dat
+#SOLUTIONFILE=work/plumed_ex7.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
@@ -639,7 +645,10 @@ UPPER_WALLS __FILL__
 c1: COORDINATIONNUMBER SPECIES=__FILL__ MOMENTS=__FILL__ SWITCH={RATIONAL __FILL__ }
 
 # Do metadynamics
-METAD ARG=__FILL__ HEIGHT=__FILL__ PACE=__FILL__ SIGMA=__FILL__ GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=500,500 BIASFACTOR=5
+METAD ... 
+   ARG=__FILL__ HEIGHT=__FILL__ PACE=__FILL__ SIGMA=__FILL__ 
+   GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=500,500 BIASFACTOR=5
+...
 ```
  
 *Copy this input to file called plumed.dat and modify it so that it instructs PLUMED to add Gaussian kernels with a bandwidth of 0.1 in both the second and third moment of the distribution of coordination numbers and a height of 0.05* $\epsilon$ *every 
@@ -652,26 +661,36 @@ plumed simplemd < in
 Once you have run the metadynamics calculations, you can post-process the output trajectory using <b> driver </b> to extract the free energy by [reweighting](https://www.notion.so/Weighted-histograms-546d0b3837ce43a3b9de0dcf7a741353).  Notice that to do block averaging, you will need to extract multiple estimates for the (weighted) histogram.  You should thus use the following input file to extract estimates of the histogram:
 
 ```plumed
-#SOLUTIONFILE=answers/plumed_ex8.dat
+#SOLUTIONFILE=work/plumed_ex8.dat
 # this optional command tells VIM that this is a PLUMED file and to colour the text accordingly
 # vim: ft=plumed
 
 UNITS NATURAL
 
-# We can delete the parts of the input that specified the walls and disregard these in our analysis
-# It is OK to do this as we are only interested in the value of the free energy in parts of phase space
-# where the bias due to these walls is not acting.
+# We can delete the parts of the input that specified the walls and disregard these in our 
+# analysis. It is OK to do this as we are only interested in the value of the free energy 
+# in parts of phase space where the bias due to these walls are not acting.
 
 c1: COORDINATIONNUMBER SPECIES=__FILL__ MOMENTS=__FILL__ SWITCH={RATIONAL __FILL__}
 
-# The metadynamics bias is restarted here so we consider the final bias as a static bias in our calculations
-METAD ARG=__FILL__ HEIGHT=0.05 PACE=50000000 SIGMA=0.1,0.1 GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=500,500 TEMP=0.1 BIASFACTOR=5 RESTART=YES
+# The metadynamics bias is restarted here so we consider the final bias as a static bias 
+# in our calculations
+METAD ...
+   ARG=__FILL__ HEIGHT=0.05 PACE=50000000 SIGMA=0.1,0.1 
+   GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=500,500 
+   TEMP=0.1 BIASFACTOR=5 RESTART=YES
+...
 
-# This adjusts the weights of the sampled configurations and thereby accounts for the effect of the bias potential
+# This adjusts the weights of the sampled configurations and thereby accounts for the 
+# effect of the bias potential
 rw: REWEIGHT_BIAS TEMP=0.1
 
 # Calculate the histogram and output it to a file
-hh: HISTOGRAM ARG=c1.* GRID_MIN=-1.5,-1.5 GRID_MAX=2.5,2.5 GRID_BIN=200,200 BANDWIDTH=0.02,0.02 LOGWEIGHTS=__FILL__ CLEAR=__FILL__ NORMALIZATION=true
+hh: HISTOGRAM ...
+   ARG=c1.* GRID_MIN=-1.5,-1.5 
+   GRID_MAX=2.5,2.5 GRID_BIN=200,200 BANDWIDTH=0.02,0.02 
+   LOGWEIGHTS=__FILL__ CLEAR=__FILL__ NORMALIZATION=true
+...
 DUMPGRID GRID=hh FILE=my_histogram.dat STRIDE=2500
 ```
 
@@ -689,19 +708,19 @@ free energy surface computed by taking the (weighted) average of the blocks, the
 
 ![The estimate of the free energy for the Lennard Jones system (left panel) and the errors on these estimate of the free energy](figures/masterclass-21-2-fes_errors.png)
 
-Notice that the data is correlated here so you should investigate how the error size depends on the lengths of the blocks as was discussed in \ref masterclass-21-2-ex-7.  When I did this analysis 
+Notice that the data is correlated here so you should investigate how the error size depends on the lengths of the blocks as was discussed in exercise 7.  When I did this analysis 
 I found that the error does not have a strong dependence on the size of the blocks.
 
 ![The dependence of the average error in the free energy on the size of the blocks used for the block averaging](figures/masterclass-21-2-fes_error_blocks.png) 
 
 Finally, if you are struggling to plot the 2D free energy surface, you can generate free energy as a function of one CV only using the ideas from earlier exercises.
 
-<em> Hint: You are now calculating weighted averages so you will need to use the code you wrote for \ref masterclass-21-2-ex-8 to merge the histograms </em>
+<em> Hint: You are now calculating weighted averages so you will need to use the code you wrote for exercise 8 to merge the histograms </em>
 
 ## Further reading
 
-If you want to know more about good practise using PLUMED you can read https://arxiv.org/abs/1812.08213.  We would also recommend learning about kernel density estimation, which will often give you smoother
-histograms.  You can start learning about kernel density estimation by reading https://en.wikipedia.org/wiki/Kernel_density_estimation.  My full sets of notes are available here:
+If you want to know more about good practise using PLUMED you can read [this paper](https://arxiv.org/abs/1812.08213).  We would also recommend learning about 
+[kernel density estimation](https://en.wikipedia.org/wiki/Kernel_density_estimation), which will often give you smoother histograms. My full sets of notes are available here:
 
 - [Probability theory notes](https://www.notion.so/940bd09c5be343888244beb21ed4a166?v=6bb0bd98d8fc47a081164069121ee396) 
 - [Thermodynamics notes](https://www.notion.so/365db6742a81483ba82d27a3c9133eba?v=7859a0ae344042eab8ff6dab16533224)

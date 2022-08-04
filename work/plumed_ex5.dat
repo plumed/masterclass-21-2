@@ -1,0 +1,8 @@
+UNITS NATURAL
+data: READ FILE=../data/uncorrelated_data VALUES=rand
+hhh: HISTOGRAM ... 
+   ARG=data STRIDE=1 
+   GRID_MIN=-4.5 GRID_MAX=4.5 GRID_BIN=100 
+   CLEAR=1000 KERNEL=DISCRETE
+...
+DUMPGRID GRID=hhh FILE=hist.dat STRIDE=1000
