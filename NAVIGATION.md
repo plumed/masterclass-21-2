@@ -1,11 +1,11 @@
 ```mermaid
 flowchart LR
 A[Lecture I] ==> B[Instructions]
-A --> G[how data was generated]
-A --> C[template notebook]
+A -.-> G[how data was generated]
+A -.-> C[template notebook]
 B ==> D[Lecture II]
-C --> D
-G --> D
+C -.-> D
+G -.-> D
 D --> E[solution]
 D --> F[alternative solution]
 click A "video 1" "A lecture that was given on February 1st 2021 as part of the plumed masterclass series that introduces you to the exercises in this lesson"
