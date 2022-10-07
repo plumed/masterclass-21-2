@@ -4,8 +4,10 @@ A[Lecture I] --> B[Instructions]
 A --> G[how data was generated]
 A --> C[template notebook]
 B --> D[Lecture II]
-B --> E[solution]
-C --> F[alternative solution]
+C --> D
+G --> D
+D --> E[solution]
+D --> F[alternative solution]
 click A "video 1" "A lecture that was given on February 1st 2021 as part of the plumed masterclass series that introduces you to the exercises in this lesson"
 click B "README" "The instructions for the exercises"
 click G "notebooks/gendata.ipynb" "A python notebook that shows how the data sets in the files uncorrelated_data, correlated_data and weighted data that are all used in the exericses was generated"
