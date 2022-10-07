@@ -1,9 +1,9 @@
 ```mermaid
 flowchart LR
-A[Lecture I] --> B[Instructions]
+A[Lecture I] ==> B[Instructions]
 A --> G[how data was generated]
 A --> C[template notebook]
-B --> D[Lecture II]
+B ==> D[Lecture II]
 C --> D
 G --> D
 D --> E[solution]
