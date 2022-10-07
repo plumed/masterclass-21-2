@@ -1,4 +1,4 @@
-# Navigating this lesson
+#Navigating this lesson
 
 This lesson was given as part of the PLUMED masterclass.  It includes:
 
