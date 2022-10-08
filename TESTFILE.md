@@ -18,5 +18,5 @@ C -.-> D
 G -.-> D
 D --> E[solution]
 D --> F[alternative solution]
-click A "data/video1.html" "A lecture that was given on February 1st 2021 as part of the plumed masterclass series that introduces you to the exercises in this lesson" 
+click A "data/video1.html" "A lecture that was given on February 1st 2021 as part of the plumed masterclass series that introduces you to the exercises in this lesson"
 ```
