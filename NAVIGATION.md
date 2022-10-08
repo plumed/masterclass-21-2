@@ -12,7 +12,8 @@ This lesson was the second masterclass in the 2021 series.  You will likely be a
 
 ```mermaid
 flowchart LR;
-  A[Lecture I] ==> B[Instructions];
+  H[PLUMED intro] -.-> A[Lecture I] 
+  A ==> B[Instructions];
   A -.-> G[how data was generated];
   A -.-> C[template notebook];
   B ==> D[Lecture II];
@@ -20,6 +21,7 @@ flowchart LR;
   G -.-> D;
   D --> E[solution];
   D --> F[alternative solution];
+  click H "ref1" "This elementary lesson shows you how to install PLUMED and some basic and more advanced syntax. You will only need to complete up to exercise 1 of this earlier lesson to complete these exercises on statistical errors.";
   click A "video1" "A lecture that was given on February 1st 2021 as part of the plumed masterclass series that introduces you to the exercises in this lesson";
   click B "INSTRUCTIONS.md" "The instructions for the exercises";
   click G "notebooks/gendata.ipynb" "A python notebook that shows how the data sets in the files uncorrelated_data, correlated_data and weighted data that are all used in the exericses was generated";
